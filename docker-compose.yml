@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "80:80"
+  backend:
+    build:
+      context: ./pb
+      args:
+        TARGETOS: linux
+        TARGETARCH: amd64
+    ports:
+      - "8090:8090"

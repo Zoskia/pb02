@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# Logs
+logs
+*.log
+
+# Build files
+dist/
+
+# Environment variables
+.env
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Other
+*.bak
+*.swp
+prompt.txt
