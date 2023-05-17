@@ -1,12 +1,22 @@
 import { Injectable } from '@angular/core';
-import PocketBase from "../../../../pb/node_modules/pocketbase";
+import PocketBase from 'pocketbase';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PbTodoService {
-  pb: PocketBase = new PocketBase("http://127.0.0.1:8090");
+  private pb: PocketBase;
+  todos: any[] = [];
 
-  constructor() {}
+  constructor() {
 
+    this.pb = new PocketBase('http://127.0.0.1:8090');
+  }
+
+  async getTodos() {
+    const records = await this.pb.collection('todos').getFullList({
+      sort: '-created',
+    });
+    return records;
+  }
 }
